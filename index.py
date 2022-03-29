@@ -9,22 +9,22 @@ logger = logging.getLogger(__name__)
 token = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
 def start(update: Update, context: CallbackContext):
-    chat_id = update.message.chat_id
-    message_id = update.message.message_id
-    context.bot.send_message(chat_id=chat_id, text="hello world")
+    update.message.reply_text('start!')
+
+def help(update: Update, context: CallbackContext):
+    update.message.reply_text('help')
 
 def echo(update: Update, context: CallbackContext):
-    chat_id = update.message.chat_id
-    message_id = update.message_id
-    text = update.message.text
-    context.bot.send_message(chat_id, text=text)
+    update.message.reply_text(update.message.text)
 
 def main():
     updater = Updater(token, use_context=True)
     dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler(['START', 'start'], start))
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("help", help))
     dispatcher.add_handler(MessageHandler(Filters.text, echo))
+
     updater.start_polling()
     updater.idle()
 
