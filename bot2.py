@@ -46,7 +46,7 @@ def start(update: Update, context: CallbackContext):
 
     elif txt == "سکه":
         inlineMarkup = InlineKeyboardMarkup(menuInline)
-        update.message.reply_text("انتخاب کنید", reply_markup=menuInline)
+        update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
 
     elif txt == "درباره ما":
         context.bot.send_message(
