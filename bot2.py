@@ -39,11 +39,11 @@ def start(update: Update, context: CallbackContext):
     txt = update.effective_message.text
 
     if txt == "ثبت نام":
-        register()
+        return register()
     elif txt == "سکه":
-        coin()
+        return coin()
     else:
-        menu()
+        return menu()
 
 def s(update: Update, context: CallbackContext):
     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
