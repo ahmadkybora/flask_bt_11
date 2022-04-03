@@ -19,10 +19,14 @@ logger = logging.getLogger(__name__)
 
 tkn = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
-inlineKeys = [
-    [InlineKeyboardButton('1', url='google.com', callback_data='1'), InlineKeyboardButton('2', url='google.com')], 
-    [InlineKeyboardButton('3', url='google.com'), InlineKeyboardButton('4', url='google.com'), InlineKeyboardButton('5', url='google.com')], 
+menuInline = [
+    [InlineKeyboardButton('ثبت نام'), InlineKeyboardButton("درباره ما")], 
+    [InlineKeyboardButton('سکه'), InlineKeyboardButton('4')], 
+    [InlineKeyboardButton('5'), InlineKeyboardButton('2')], 
 ]
+
+first_name = [InlineKeyboardButton('نام')]
+last_name = [InlineKeyboardButton('نام خانوادگی')]
 
 keyboard = [
     [KeyboardButton('شروع')],
@@ -34,24 +38,49 @@ keyboard = [
 def start(update: Update, context: CallbackContext):
     txt = update.effective_message.text
 
-    if txt == "شروع":
-        key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
-        chat_id = update.message.chat_id
-        message_id = update.message.message_id
-        # inlineMarkup = InlineKeyboardMarkup(keyboard)
-        context.bot.send_message(
-            chat_id=chat_id, 
-            text="hello world", 
-            # reply_to_message_id=update.effective_message.message_id,
-            # reply_to_message_id=inlineMarkup,
-            reply_markup=key
-        )
-        # inlineMarkup = InlineKeyboardMarkup(keyboard)
-        # update.message.reply_text("hello", reply_markup=inlineMarkup)
+    if txt == "ثبت نام":
+        register()
+    elif txt == "سکه":
+        coin()
+    else:
+        menu()
 
-def inline_reply(update: Update, context: CallbackContext):
-    inlineMarkup = InlineKeyboardMarkup(inlineKeys)
+def s(update: Update, context: CallbackContext):
+    key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
+    chat_id = update.message.chat_id
+    message_id = update.message.message_id
+    # inlineMarkup = InlineKeyboardMarkup(keyboard)
+    context.bot.send_message(
+        chat_id=chat_id, 
+        text="hello world", 
+        # reply_to_message_id=update.effective_message.message_id,
+        # reply_to_message_id=inlineMarkup,
+        # reply_markup=key
+    )
+    # inlineMarkup = InlineKeyboardMarkup(keyboard)
+    # update.message.reply_text("hello", reply_markup=inlineMarkup)
+
+def register(update: Update, context: CallbackContext):
+    first_nameMarkup = InlineKeyboardMarkup(first_name)
+    update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
+
+def menu(update: Update, context: CallbackContext):
+    inlineMarkup = InlineKeyboardMarkup(menuInline)
     update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+
+def coin(update: Update, context: CallbackContext):
+    inlineMarkup = InlineKeyboardMarkup(menuInline)
+    update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+
+def aboutUs(update: Update, context: CallbackContext):
+        context.bot.send_message(
+        chat_id=update.message.chat_id, 
+        text="aboutUs", 
+    )
+
+# def inline_reply(update: Update, context: CallbackContext):
+#     inlineMarkup = InlineKeyboardMarkup(inlineKeys)
+#     update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
 
 def main():
     updater = Updater(tkn, use_context=True)
