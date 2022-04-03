@@ -30,33 +30,33 @@ def start(update:Update, context:CallbackContext):
     # متن داخل بعنوان یک تکست برای ربات ارسال شده و شرط مورد نظر 
     # انجام میشود
     keyboard = [
-        [KeyboardButton('start')],
-        [KeyboardButton('Contact us')],
-        [KeyboardButton('Help')], 
-        [KeyboardButton('File')]
+        [KeyboardButton('شروع')],
+        [KeyboardButton('درباره ما')],
+        [KeyboardButton('کمک')], 
+        [KeyboardButton('فایل')]
     ]
     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
 
-    if txt == "Contact Us":
+    if txt == "درباره ما":
         bot.send_message(
             chat_id = chtiD,
             text = "سلام حالتون چطوره", 
             reply_to_message_id=update.effective_message.message_id,
         )
-    elif txt == "Help":
+    elif txt == "کمک":
         bot.send_message(
             chat_id = chtiD,
             text="How to Deploy Your Telegram bot on Heroku\n\nچگونه ربات خود را در Heroku راه اندازی کنید",
             reply_to_message_id=update.effective_message.message_id,
         )
-    elif txt == "Start":
+    elif txt == "شروع":
         bot.send_message(
             chat_id = chtiD,
             text="<u>سلام</u>\n\n<i>Telegram : </i>خوبی",
             reply_to_message_id=update.effective_message.message_id,
             parse_mode=ParseMode.HTML
         )
-    elif txt == "File":
+    elif txt == "فایل":
         bot.send_message(
             chat_id = chtiD,
             text="فایل در حال دانلود است" + f"\n\n {file}",
