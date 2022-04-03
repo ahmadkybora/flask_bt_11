@@ -30,7 +30,7 @@ def start(update:Update, context:CallbackContext):
     # متن داخل بعنوان یک تکست برای ربات ارسال شده و شرط مورد نظر 
     # انجام میشود
     keyboard = [
-        [KeyboardButton('Start')],
+        [KeyboardButton('شروع')],
         [KeyboardButton('Contact us')],
         [KeyboardButton('Help')], 
         [KeyboardButton('File')]
