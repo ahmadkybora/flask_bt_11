@@ -25,7 +25,8 @@ def start(update: Update, context: CallbackContext):
     context.bot.send_message(
         chat_id=chat_id, 
         text="hello world", 
-        reply_to_message_id=update.effective_message.message_id,
+        # reply_to_message_id=update.effective_message.message_id,
+        reply_to_message_id=key,
         reply_markup=key
     )
 
@@ -33,7 +34,8 @@ def main():
     updater = Updater(tkn, use_context=True)
     dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler('start', start))
+    # dispatcher.add_handler(CommandHandler('start', start))
+    dispatcher.add_handler(MessageHandler(Filters.text,start))
     updater.start_polling()
 
 
