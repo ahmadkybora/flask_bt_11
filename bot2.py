@@ -29,12 +29,11 @@ def start(update: Update, context: CallbackContext):
         reply_markup=key
     )
 
-
 def main():
     updater = Updater(tkn, use_context=True)
     dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler('شروع', start))
+    dispatcher.add_handler(CommandHandler('start', start))
     updater.start_polling()
 
 
