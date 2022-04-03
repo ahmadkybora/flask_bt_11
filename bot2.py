@@ -37,8 +37,8 @@ def main():
     updater = Updater(tkn, use_context=True)
     dispatcher = updater.dispatcher
 
-    # dispatcher.add_handler(CommandHandler('start', start))
-    dispatcher.add_handler(MessageHandler(Filters.text,start))
+    dispatcher.add_handler(CommandHandler('start', start))
+    # dispatcher.add_handler(MessageHandler(Filters.text,start))
     updater.start_polling()
 
 
