@@ -43,7 +43,8 @@ def start(update:Update, context:CallbackContext):
         [KeyboardButton('شروع')],
         [KeyboardButton('درباره ما')],
         [KeyboardButton('کمک')], 
-        [KeyboardButton('فایل')]
+        [KeyboardButton('فایل')], 
+        [KeyboardButton('ثبت نام')], 
     ]
     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
 
