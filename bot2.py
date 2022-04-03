@@ -20,12 +20,13 @@ logger = logging.getLogger(__name__)
 tkn = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
 menuInline = [
-   [InlineKeyboardButton('1', url='google.com', callback_data='1'), InlineKeyboardButton('2', url='google.com')], 
-   [InlineKeyboardButton('3', url='google.com'), InlineKeyboardButton('4', url='google.com'), InlineKeyboardButton('5', url='google.com')], 
+   [InlineKeyboardButton('1', callback_data='1'), InlineKeyboardButton('2', callback_data='1')], 
+   [InlineKeyboardButton('شس', callback_data='1'), InlineKeyboardButton('4', callback_data='1')], 
+   [InlineKeyboardButton('شس', callback_data='1'), InlineKeyboardButton('4', callback_data='1')], 
 ]
 
-first_name = [InlineKeyboardButton('نام')]
-last_name = [InlineKeyboardButton('نام خانوادگی')]
+first_name = [InlineKeyboardButton('نام', callback_data='1')]
+last_name = [InlineKeyboardButton('نام خانوادگی', callback_data='1')]
 
 keyboard = [
     [KeyboardButton('شروع')],
