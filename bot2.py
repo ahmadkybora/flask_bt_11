@@ -33,7 +33,8 @@ keyboard = [
     [KeyboardButton('درباره ما')],
     [KeyboardButton('کمک')], 
     [KeyboardButton('فایل')], 
-    [KeyboardButton('ثبت نام')]
+    [KeyboardButton('ثبت نام')],
+    [KeyboardButton('سکه')]
 ]
 
 def start(update: Update, context: CallbackContext):
@@ -45,7 +46,7 @@ def start(update: Update, context: CallbackContext):
 
     elif txt == "سکه":
         inlineMarkup = InlineKeyboardMarkup(menuInline)
-        update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+        update.message.reply_text("انتخاب کنید", reply_markup=menuInline)
 
     elif txt == "درباره ما":
         context.bot.send_message(
