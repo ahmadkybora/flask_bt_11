@@ -27,3 +27,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+    # keyboard = [
+    #     [KeyboardButton('شروع')],
+    #     [KeyboardButton('درباره ما')],
+    #     [KeyboardButton('کمک')], 
+    #     [KeyboardButton('فایل')]
+    # ]
+    # key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
