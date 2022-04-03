@@ -25,7 +25,8 @@ menuInline = [
    [InlineKeyboardButton('شس', callback_data='1'), InlineKeyboardButton('4', callback_data='1')], 
 ]
 
-first_name = InlineKeyboardButton('نام', callback_data='1')
+first_name = [[InlineKeyboardButton('نام', callback_data='1')], ]
+# keyboard = [[InlineKeyboardButton('Button: Print Clicked', callback_data=1)], ]
 last_name = [InlineKeyboardButton('نام خانوادگی', callback_data='1')]
 
 keyboard = [
