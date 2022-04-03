@@ -21,7 +21,7 @@ def main():
     updater = Updater(tkn, use_context=True)
     dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler('start', start))
+    dispatcher.add_handler(CommandHandler('شروع', start))
     updater.start_polling()
 
 
