@@ -32,51 +32,67 @@ keyboard = [
     [KeyboardButton('شروع')],
     [KeyboardButton('درباره ما')],
     [KeyboardButton('کمک')], 
-    [KeyboardButton('فایل')]
+    [KeyboardButton('فایل')], 
+    [KeyboardButton('ثبت نام')]
 ]
 
 def start(update: Update, context: CallbackContext):
     txt = update.effective_message.text
 
     if txt == "ثبت نام":
-        return register()
-    elif txt == "سکه":
-        return coin()
-    else:
-        return menu()
+        first_nameMarkup = InlineKeyboardMarkup(first_name)
+        update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
 
-def s(update: Update, context: CallbackContext):
-    key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
-    chat_id = update.message.chat_id
-    message_id = update.message.message_id
-    # inlineMarkup = InlineKeyboardMarkup(keyboard)
-    context.bot.send_message(
-        chat_id=chat_id, 
-        text="hello world", 
-        # reply_to_message_id=update.effective_message.message_id,
-        # reply_to_message_id=inlineMarkup,
-        # reply_markup=key
-    )
+    elif txt == "سکه":
+        inlineMarkup = InlineKeyboardMarkup(menuInline)
+        update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+
+    elif txt == "درباره ما":
+        context.bot.send_message(
+            chat_id=update.message.chat_id, 
+            text="hello world"
+        )
+
+    else:
+        key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
+        context.bot.send_message(
+            chat_id=update.message.chat_id, 
+            text="hello world", 
+            reply_markup=key
+        )
+
+# def s(update: Update, context: CallbackContext):
+#     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
+#     chat_id = update.message.chat_id
+#     message_id = update.message.message_id
+#     # inlineMarkup = InlineKeyboardMarkup(keyboard)
+#     context.bot.send_message(
+#         chat_id=chat_id, 
+#         text="hello world", 
+#         # reply_to_message_id=update.effective_message.message_id,
+#         # reply_to_message_id=inlineMarkup,
+#         # reply_markup=key
+#     )
     # inlineMarkup = InlineKeyboardMarkup(keyboard)
     # update.message.reply_text("hello", reply_markup=inlineMarkup)
 
-def register(update: Update, context: CallbackContext):
-    first_nameMarkup = InlineKeyboardMarkup(first_name)
-    update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
+# def register(update: Update, context: CallbackContext):
+#     first_nameMarkup = InlineKeyboardMarkup(first_name)
+#     update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
 
-def menu(update: Update, context: CallbackContext):
-    inlineMarkup = InlineKeyboardMarkup(menuInline)
-    update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+# def menu(update: Update, context: CallbackContext):
+#     inlineMarkup = InlineKeyboardMarkup(menuInline)
+#     update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
 
-def coin(update: Update, context: CallbackContext):
-    inlineMarkup = InlineKeyboardMarkup(menuInline)
-    update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
+# def coin(update: Update, context: CallbackContext):
+#     inlineMarkup = InlineKeyboardMarkup(menuInline)
+#     update.message.reply_text("انتخاب کنید", reply_markup=inlineMarkup)
 
-def aboutUs(update: Update, context: CallbackContext):
-        context.bot.send_message(
-        chat_id=update.message.chat_id, 
-        text="aboutUs", 
-    )
+# def aboutUs(update: Update, context: CallbackContext):
+#         context.bot.send_message(
+#         chat_id=update.message.chat_id, 
+#         text="aboutUs", 
+#     )
 
 # def inline_reply(update: Update, context: CallbackContext):
 #     inlineMarkup = InlineKeyboardMarkup(inlineKeys)
@@ -88,7 +104,7 @@ def main():
 
     # dispatcher.add_handler(CommandHandler('start', start))
     # dispatcher.add_handler(CommandHandler('s', inline_reply))
-    dispatcher.add_handler(MessageHandler(Filters.text,start))
+    dispatcher.add_handler(MessageHandler(Filters.text, start))
     updater.start_polling()
 
 if __name__ == '__main__':
