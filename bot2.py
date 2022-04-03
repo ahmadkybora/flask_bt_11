@@ -13,9 +13,22 @@ logger = logging.getLogger(__name__)
 tkn = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
 def start(update: Update, context: CallbackContext):
+    keyboard = [
+        [KeyboardButton('شروع')],
+        [KeyboardButton('درباره ما')],
+        [KeyboardButton('کمک')], 
+        [KeyboardButton('فایل')]
+    ]
+    key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
     chat_id = update.message.chat_id
     message_id = update.message.message_id
-    context.bot.send_message(chat_id=chat_id, text="hello world")
+    context.bot.send_message(
+        chat_id=chat_id, 
+        text="hello world", 
+        reply_to_message_id=update.effective_message.message_id,
+        reply_markup=key
+    )
+
 
 def main():
     updater = Updater(tkn, use_context=True)
