@@ -22,13 +22,13 @@ def start(update: Update, context: CallbackContext):
     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
     chat_id = update.message.chat_id
     message_id = update.message.message_id
-    # inlineMarkup = InlineKeyboardMarkup(keyboard)
+    inlineMarkup = InlineKeyboardMarkup(keyboard)
     context.bot.send_message(
         chat_id=chat_id, 
         text="hello world", 
         # reply_to_message_id=update.effective_message.message_id,
         # reply_to_message_id=inlineMarkup,
-        # reply_markup=key
+        reply_markup=inlineMarkup
     )
     # inlineMarkup = InlineKeyboardMarkup(keyboard)
     # update.message.reply_text("hello", reply_markup=inlineMarkup)
