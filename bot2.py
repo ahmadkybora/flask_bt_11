@@ -56,6 +56,7 @@ def main():
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler('start', start))
+    dispatcher.add_handler(CommandHandler('s', inline_reply))
     # dispatcher.add_handler(MessageHandler(Filters.text,start))
     updater.start_polling()
 
