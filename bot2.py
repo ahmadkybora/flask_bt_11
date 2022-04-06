@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 tkn = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
 menuInline = [
-   [InlineKeyboardButton('1000 عدد', callback_data='1'), ], 
-   [InlineKeyboardButton('3000 عدد', callback_data='1'), InlineKeyboardButton('4000 عدد', callback_data='1')], 
+   [InlineKeyboardButton('عدد 1000', callback_data='1'), ], 
+   [InlineKeyboardButton('عدد 3000 ', callback_data='1'), InlineKeyboardButton('4000 عدد', callback_data='1')], 
    [InlineKeyboardButton('5000 عدد', callback_data='1'), InlineKeyboardButton('6000 عدد', callback_data='1')], 
 ]
 
