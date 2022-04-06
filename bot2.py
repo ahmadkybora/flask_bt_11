@@ -64,7 +64,10 @@ def start(update: Update, context: CallbackContext):
 
 def register(update: Update, context: CallbackContext):
     first_nameMarkup = InlineKeyboardMarkup(first_name)
-    update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
+    update.message.reply_text("لطفا نام خود را وارد کنید", reply_markup=first_nameMarkup)
+    txt = update.effective_message.text
+    return txt
+
 
 # def s(update: Update, context: CallbackContext):
 #     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
