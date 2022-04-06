@@ -20,9 +20,9 @@ logger = logging.getLogger(__name__)
 tkn = "2016260844:AAGwWwI6ZLA7cLUNNcAbbFz2W84wkJebZyo"
 
 menuInline = [
-   [InlineKeyboardButton('1', callback_data='1'), InlineKeyboardButton('2', callback_data='1')], 
-   [InlineKeyboardButton('شس', callback_data='1'), InlineKeyboardButton('4', callback_data='1')], 
-   [InlineKeyboardButton('شس', callback_data='1'), InlineKeyboardButton('4', callback_data='1')], 
+   [InlineKeyboardButton('1000 عدد', callback_data='1'), ], 
+   [InlineKeyboardButton('3000 عدد', callback_data='1'), InlineKeyboardButton('4000 عدد', callback_data='1')], 
+   [InlineKeyboardButton('5000 عدد', callback_data='1'), InlineKeyboardButton('6000 عدد', callback_data='1')], 
 ]
 
 first_name = [[InlineKeyboardButton('نام', callback_data='1')], ]
@@ -63,11 +63,13 @@ def start(update: Update, context: CallbackContext):
         )
 
 def register(update: Update, context: CallbackContext):
-    first_nameMarkup = InlineKeyboardMarkup(first_name)
-    update.message.reply_text("لطفا نام خود را وارد کنید", reply_markup=first_nameMarkup)
+    # first_nameMarkup = InlineKeyboardMarkup(first_name)
+    # update.message.reply_text("لطفا نام خود را وارد کنید", reply_markup=first_nameMarkup)
+    update.message.reply_text("لطفا نام خود را وارد کنید")
     txt = update.effective_message.text
     return txt
 
+# def 
 
 # def s(update: Update, context: CallbackContext):
 #     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
