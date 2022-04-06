@@ -42,8 +42,7 @@ def start(update: Update, context: CallbackContext):
     txt = update.effective_message.text
 
     if txt == "ثبت نام":
-        first_nameMarkup = InlineKeyboardMarkup(first_name)
-        update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
+        register(update, context)
 
     elif txt == "سکه":
         inlineMarkup = InlineKeyboardMarkup(menuInline)
@@ -62,6 +61,10 @@ def start(update: Update, context: CallbackContext):
             text="hello world", 
             reply_markup=key
         )
+
+def register(update: Update, context: CallbackContext):
+    first_nameMarkup = InlineKeyboardMarkup(first_name)
+    update.message.reply_text("انتخاب کنید", reply_markup=first_nameMarkup)
 
 # def s(update: Update, context: CallbackContext):
 #     key = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
